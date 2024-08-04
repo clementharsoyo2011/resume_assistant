@@ -6,7 +6,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 import os
 
-os.environ["OPENAI_API_KEY"] = "sk-proj-impNWes5SHvUZaXiusKGT3BlbkFJuhz7P1kSvHDInvTTx75y"
+st.write("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
 
 openai_client = openai.Client(api_key=os.environ.get("OPENAI_API_KEY"))
 
