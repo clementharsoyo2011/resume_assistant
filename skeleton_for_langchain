@@ -1,0 +1,36 @@
+'''
+chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.1, api_key=os.environ["OPENAI_API_KEY"])
+
+memoryforchat = ConversationBufferMemory()
+convo = ConversationChain(memory=memoryforchat, llm=chat, verbose=True)
+
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+else:
+    for message in st.session_state.chat_history:
+        memoryforchat.save_context({"input": message["human"]}, {"outputs": message["AI"]})
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    st.session_state.messages.append({"role": "assistant", "content": "How may I help you?"})
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+if prompt:=st.chat_input("Ask Something!"):
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        
+        st.session_state.messages.append({"role": "user", "content": prompt})
+            
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                time.sleep(1)
+                responce = convo.predict(input=prompt)
+                st.write(responce)
+        
+        st.session_state.messages.append({"role": "assistant", "content": responce})
+        message={'human': prompt, "AI": responce}
+        st.session_state.chat_history.append(message)
+'''
