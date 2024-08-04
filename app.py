@@ -2,13 +2,12 @@ import streamlit as st
 import time
 import openai
 from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
+# from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
-import os
 
-st.write("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
+# st.write("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
 
-openai_client = openai.Client(api_key=os.environ.get("OPENAI_API_KEY"))
+openai_client = openai.Client(api_key=st.secrets["OPENAI_API_KEY"])
 
 assistant = openai_client.beta.assistants.retrieve("asst_EkXIj0Z0Kbq3KMIt5gYPkpyN")
 
