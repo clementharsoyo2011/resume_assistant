@@ -17,8 +17,8 @@ st.title("🚀 Welcome to Clement's Page!")
 col1, col2 = st.columns(2)
 
 with col1:
-    pdf_viewer("https://github.com/clementharsoyo2011/resume_assistant/blob/main/Clement_Harsoyo_Resume.pdf")
-    with open("https://github.com/clementharsoyo2011/resume_assistant/blob/main/Clement_Harsoyo_Resume.pdf", "rb") as pdf_file:
+    pdf_viewer("Clement_Harsoyo_Resume.pdf")
+    with open("Clement_Harsoyo_Resume.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
     st.download_button(
         label="Download Clement's Resume",
