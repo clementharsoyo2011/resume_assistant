@@ -1,78 +1,44 @@
 import streamlit as st
-import time
-import openai
-from langchain.chat_models import ChatOpenAI
-# from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationChain
-from streamlit_pdf_viewer import pdf_viewer
+from streamlit_navigation_bar import st_navbar
+import pages as pg
 
 # st.write("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
 
-openai_client = openai.Client(api_key=st.secrets["OPENAI_API_KEY"])
+styles = {
+    "nav": {
+        "background-color": "rgb(123, 209, 146)",
+    },
+    "div": {
+        "max-width": "48rem",
+    },
+    "span": {
+        "border-radius": "0.5rem",
+        "color": "rgb(49, 51, 63)",
+        "margin": "0 0.125rem",
+        "padding": "0.4375rem 0.625rem",
+    },
+    "active": {
+        "background-color": "rgba(255, 255, 255, 0.25)",
+    },
+    "hover": {
+        "background-color": "rgba(255, 255, 255, 0.35)",
+    },
+}
+pages=["Introduction", "Chat with Clement", "Experience", "Projects"]
 
-assistant = openai_client.beta.assistants.retrieve("asst_EkXIj0Z0Kbq3KMIt5gYPkpyN")
+st.set_page_config(page_title="AskClement!", page_icon=":speech_baloon:")
 
-st.set_page_config(page_title="AskClemmy", page_icon=":speech_baloon:", layout="wide")
-st.title("🚀 Welcome to Clement's Page!")
-col1, col2 = st.columns(2)
+page = st_navbar(
+    pages=pages,
+    styles=styles,
+    options={"show_menu": True, "show_sidebar": False, "hide_nav": False}
+)
 
-with col1:
-    pdf_viewer("/Users/clementharsoyo/Desktop/personal_resume_chatbot/Clement_Harsoyo_Resume.pdf")
-    with open("/Users/clementharsoyo/Desktop/personal_resume_chatbot/Clement_Harsoyo_Resume.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    st.download_button(
-        label="Download Clement's Resume",
-        data=PDFbyte,
-        file_name="Clement_Harsoyo_Resume.pdf",
-    )
-
-with col2:
-    if "thread_id" not in st.session_state and "messages" not in st.session_state:
-        st.session_state.messages = []
-        st.session_state.messages.append({"role": "assistant", "content": "Hi there! What would you like to know more about Clement?"})
-        thread = openai_client.beta.threads.create(
-            messages = st.session_state.messages
-        )
-        st.session_state.thread_id = thread.id
-        if "chat_history" not in st.session_state:
-            st.session_state.chat_history = []
-    
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-
-    if prompt := st.chat_input("Ask Something!"):
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        
-        st.session_state.messages.append({"role": "user", "content": prompt})
-
-        openai_client.beta.threads.messages.create(
-            thread_id = st.session_state.thread_id,
-            role = "user",
-            content = prompt
-        )
-
-        run = openai_client.beta.threads.runs.create(
-            thread_id = st.session_state.thread_id,
-            assistant_id = assistant.id,
-            instructions="You are Clement Harsoyo's personal assistant. Your goal is to help Clement secure interviews and job offers. Your audience is a talent recruiter."
-        )
-
-        while run.status != "completed":
-            time.sleep(1)
-            run = openai_client.beta.threads.runs.retrieve(
-                thread_id = st.session_state.thread_id,
-                run_id = run.id
-            )
-        
-        messages = openai_client.beta.threads.messages.list(
-            thread_id = st.session_state.thread_id
-        )
-        
-        assistant_responses = [message for message in messages if message.run_id == run.id and message.role == "assistant"]
-        
-        for response in assistant_responses:
-            st.session_state.messages.append({"role": "assistant", "content": response.content[0].text.value})
-            with st.chat_message("assistant"):
-                st.markdown(response.content[0].text.value)
+if page == "Introduction":
+    pg.introduction()
+elif page == "Chat with Clement":
+    pg.chat()
+elif page == "Experience":
+    pg.experience()
+elif page == "Projects":
+    pg.projects()

@@ -2,3 +2,4 @@ openai
 langchain
 langchain_community
 streamlit_pdf_viewer
+streamlit_navigation_bar
