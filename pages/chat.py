@@ -3,13 +3,9 @@ import openai
 import re
 import time
 import os
-from dotenv import load_dotenv, find_dotenv
-
-env_file = find_dotenv(".env")
-load_dotenv(env_file)
 
 openai_client = openai.Client(
-    api_key=os.environ.get("OPENAI_API_KEY"),
+    api_key=os.environ["OPENAI_API_KEY"],
     default_headers={"OpenAI-Beta": "assistants=v2"}
 )
 
