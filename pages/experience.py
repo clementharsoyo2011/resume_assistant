@@ -4,10 +4,14 @@ def experience():
     st.markdown('''
     ## Work Experience
     #### [Splore](https://splore.com) - Associate Product Manager (Search and Data)
-    - Splore is a Temasek-backed startup building AI-powered search engine to optimize knowledge access with personalised and engaging experience.
-    - Led a team of 5 to launch AI search platform end-to-end. This included discovering user stories, creating technical requirements, testing, and performance monitoring for continuous improvement. In 6 months, successfully acquired more than 600 communities in Discord as beta users.
-    - Collaborated closely with AI Engineers to develop customer service agents for B2B customers. Demonstrated strong stakeholder management skills by fostering positive relationship with cross-functional teams and setting realistic milestones to ensure smooth delivery of the project to the client.
-    - Spearheaded large scale data generation project for in-house LLM fine-tuning. Implemented a rigorous data quality control and observability measure, enabling the model to outperform GPT4 with much higher efficiency.
+    - Launched AI-powered search engine for private equity firms, improving productivity by 4x through advanced
+    data extraction and LLM-powered retrieval. Led product development by gathering requirements, creating
+    PRDs, and collaborating on system design to deliver a seamless user experience and scalable architecture.
+    - Spearheaded AI-powered research platform that integrates private and public data with 95% precision, enabling
+    data-driven decision-making for a leading sustainability investing firm. Successfully managed product launch by
+    liaising effectively with clients to align priorities and ensure seamless integration to their daily workflows.
+    - Set up LLM evaluation system and metrics to drive improvements through in-house analytics, model evaluation,
+    and user feedback. Collaborated with cross-functional teams to iterate product features and align business goals.
 
     #### [Shopee](https://shopee.sg/) - Product Manager (Internship)
     - Collaborated with business and engineering teams to launch and maintain category recommendation service with 95% precision, improving downstream business operations efficiency and revenue generation.

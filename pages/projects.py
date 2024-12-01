@@ -2,10 +2,13 @@ import streamlit as st
 
 def projects():
     st.markdown(''' ## AI Projects ''')
-    st.subheader("Job Application AI Assistant", divider="blue")
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+    st.subheader("Job Application AI Assistant (Beta)", divider="blue")
+    st.write("Personalised AI assistant that tailors resume to the specific job application, seamlessly and accurately.")
+    video_file = open("pages/Resume_Customised_Agent.mp4", "rb")
+    video_bytes = video_file.read()
+    st.video(video_bytes)
     st.subheader("Resume Chatbot", divider="blue")
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+    st.write("Smart chatbot with comprehensive knowledge on with Clement's background and experience, enabling natural conversation. See [Chat with Clement] on the navigation bar above. ")
     st.markdown(''' ## Data Science Projects ''')
-    st.subheader("Financial Report Analyzer - affiliated with NatWest Market", divider="blue")
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+    st.subheader("Financial Report Analyzer for NatWest Market", divider="blue")
+    st.write("Built machine learning solution for ESG report analysis, utilizing natural language processing techniques to conduct a robust assessment on portfolio company's ESG strategy.")

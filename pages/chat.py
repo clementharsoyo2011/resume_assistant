@@ -2,14 +2,14 @@ import streamlit as st
 import openai
 import re
 import time
-from langchain.chat_models import ChatOpenAI
-# from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationChain
+import os
+from dotenv import load_dotenv, find_dotenv
 
-# st.write("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
+env_file = find_dotenv(".env")
+load_dotenv(env_file)
 
 openai_client = openai.Client(
-    api_key=st.secrets["OPENAI_API_KEY"],
+    api_key=os.environ.get("OPENAI_API_KEY"),
     default_headers={"OpenAI-Beta": "assistants=v2"}
 )
 

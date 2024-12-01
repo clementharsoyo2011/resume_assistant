@@ -1,7 +1,7 @@
 import streamlit as st
 
 def introduction():
-    st.header("🚀 Hi There! I'm a Product Manager who codes")
+    st.header("🚀 Hi There! I'm a Product Manager who loves to code")
     st.markdown("Clement Harsoyo's here! Currently a Product Manager at [Splore](https://splore.com), crafting Generative AI solutions with a blend of deep technical expertise and strategic product thinking. NUS Computing graduate specialized in AI and ML, eager to drive innovation and solve business challenges in Product Management and Data Science roles.")
     st.markdown('''
     #### Technical Skills
@@ -26,12 +26,3 @@ def introduction():
             file_name="Clement_Harsoyo_Resume.pdf",
         )
     st.link_button(label=":globe_with_meridians: Connect with Clement in LinkedIn", url="https://linkedin.com/in/clementharsoyo")
-    if st.button(label=":incoming_envelope: Send Clement a message"):
-        with st.form('form'):
-            viewer_email = st.text_input('Email')
-            viewer_message = st.text_input('Message')
-            c1, c2 = st.columns([1.7, 8.3])
-            with c1:
-                st.form_submit_button('Send')
-            with c2:
-                st.form_submit_button("Close")

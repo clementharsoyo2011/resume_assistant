@@ -2,8 +2,6 @@ import streamlit as st
 from streamlit_navigation_bar import st_navbar
 import pages as pg
 
-# st.write("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
-
 styles = {
     "nav": {
         "background-color": "rgb(123, 209, 146)",
