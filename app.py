@@ -29,7 +29,7 @@ st.set_page_config(page_title="AskClement!", page_icon=":speech_baloon:")
 page = st_navbar(
     pages=pages,
     styles=styles,
-    options={"show_menu": True, "show_sidebar": False, "hide_nav": False}
+    options={"show_menu": True, "show_sidebar": True, "hide_nav": False}
 )
 
 if page == "Introduction":
