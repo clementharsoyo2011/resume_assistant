@@ -1,7 +1,6 @@
 import streamlit as st
 
-def experience():
-    st.markdown('''
+st.markdown('''
     ## Work Experience
     #### [Splore](https://splore.com) - Associate Product Manager (Search and Data)
     - Launched AI-powered search engine for private equity firms, improving productivity by 4x through advanced
@@ -22,8 +21,6 @@ def experience():
     - Designed a robust data tracking metrics and created an interactive dashboard to visualize key business metrics, facilitating stakeholders in decision making.
     
     ## Voluntary Experience
-    #### [QnA Group] - Academic Contributor
-    - Enabled high quality education access to more than 1000 students across Indonesia through online social media platform. 
-    
-    
-    ''')
+    #### [Q&A Group](https://www.linkedin.com/company/q-n-a-group) - Academic Contributor
+    - Enabled high quality education access to more than 1000 students across Indonesia through online social media platform.   
+''')

@@ -1,6 +1,4 @@
 import streamlit as st
-from streamlit_navigation_bar import st_navbar
-import pages as pg
 
 styles = {
     "nav": {
@@ -22,21 +20,14 @@ styles = {
         "background-color": "rgba(255, 255, 255, 0.35)",
     },
 }
-pages=["Introduction", "Chat with Clement", "Experience", "Projects"]
 
-st.set_page_config(page_title="AskClement!", page_icon=":speech_baloon:")
+st.set_page_config(page_title="AskClement!", page_icon="👨‍💻")
 
-page = st_navbar(
-    pages=pages,
-    styles=styles,
-    options={"show_menu": True, "show_sidebar": True, "hide_nav": False}
-)
+pages = [st.Page("pages/introduction.py", title="Introduction"), 
+st.Page("pages/chat.py", title="Chat"), 
+st.Page("pages/experience.py", title="Experiences"),
+st.Page("pages/projects.py", title="Projects")]
 
-if page == "Introduction":
-    pg.introduction()
-elif page == "Chat with Clement":
-    pg.chat()
-elif page == "Experience":
-    pg.experience()
-elif page == "Projects":
-    pg.projects()
+page = st.navigation(pages)
+
+page.run()
