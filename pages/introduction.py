@@ -6,6 +6,7 @@ st.markdown('''
 #### Technical Skills
 | **Skills** | **Tools and Technologies** |
 |  :---:    | :---: |
+| Product Management  | User Research, Product Strategy, Feature Prioritization, Go-to-Market Execution  |
 | Artificial Intelligence  | Generative AI, RAG, Agentic Workflow, Open AI, Langchain  |
 | Machine Learning | Neural Networks, Transformers, Natural Language, Computer Vision |
 | Data Analytics  | Python, R, SQL, Tableau  |
